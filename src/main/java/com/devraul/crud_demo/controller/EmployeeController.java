@@ -15,7 +15,6 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    // i'll refactor this later, i'm just testing some examples (USE CONSTRUCTOR INJECTION)
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;

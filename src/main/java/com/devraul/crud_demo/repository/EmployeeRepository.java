@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class EmployeeRepository implements EmployeeDAO {
     //define field for entity manager
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     //set up constructor injection
 
@@ -30,5 +30,23 @@ public class EmployeeRepository implements EmployeeDAO {
 
         // return results
         return resultList;
+    }
+
+    @Override
+    public Employee findById(int id) {
+        Employee employee = entityManager.find(Employee.class, id);
+        return employee;
+    }
+
+    @Override
+    public Employee save(Employee employee) {
+        Employee newEmployee = entityManager.merge(employee);
+        return newEmployee;
+    }
+
+    @Override
+    public void deleteById(int id) {
+        Employee employee = entityManager.find(Employee.class, id);
+        entityManager.remove(employee);
     }
 }
