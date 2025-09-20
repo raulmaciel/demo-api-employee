@@ -33,7 +33,7 @@ public class EmployeeRepository implements EmployeeDAO {
     }
 
     @Override
-    public Employee findById(int id) {
+    public Employee findById(Long id) {
         Employee employee = entityManager.find(Employee.class, id);
         return employee;
     }
@@ -45,7 +45,7 @@ public class EmployeeRepository implements EmployeeDAO {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         Employee employee = entityManager.find(Employee.class, id);
         entityManager.remove(employee);
     }

@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee findById(int id) {
+    public Employee findById(Long id) {
         return employeeDAO.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Transactional
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         employeeDAO.deleteById(id);
     }
 }
